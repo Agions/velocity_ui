@@ -3,6 +3,8 @@ library velocity_toast_style;
 
 import 'package:flutter/material.dart';
 import '../../../core/theme/velocity_colors.dart';
+import '../../../core/tokens/velocity_spacing.dart';
+import '../../../core/tokens/velocity_radius.dart';
 
 class VelocityToastStyle {
   const VelocityToastStyle(
@@ -40,8 +42,11 @@ class VelocityToastStyle {
     return VelocityToastStyle(
       backgroundColor: VelocityColors.gray900,
       textStyle: const TextStyle(fontSize: 14, color: VelocityColors.white),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      borderRadius: const BorderRadius.all(Radius.circular(8)),
+      padding: const EdgeInsets.symmetric(
+        horizontal: VelocitySpacing.md, 
+        vertical: VelocitySpacing.md - 4, // 12px
+      ),
+      borderRadius: const BorderRadius.all(Radius.circular(VelocityRadius.md)),
       boxShadow: [
         BoxShadow(
             color: VelocityColors.withOpacity(VelocityColors.black, 0.2),
@@ -51,7 +56,7 @@ class VelocityToastStyle {
       icon: icon,
       iconSize: 20,
       iconColor: color,
-      iconSpacing: 8,
+      iconSpacing: VelocitySpacing.sm,
     );
   }
   final Color? backgroundColor;
