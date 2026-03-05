@@ -5,6 +5,8 @@ library velocity_button_style;
 
 import 'package:flutter/material.dart';
 import '../../../core/theme/velocity_colors.dart';
+import '../../../core/tokens/velocity_spacing.dart';
+import '../../../core/tokens/velocity_radius.dart';
 
 /// 按钮样式配置
 ///
@@ -29,17 +31,22 @@ class VelocityButtonStyle {
   });
 
   /// 创建默认样式
+  /// 
+  /// 使用设计令牌确保与整体设计系统一致
   factory VelocityButtonStyle.defaults() {
-    return const VelocityButtonStyle(
+    return VelocityButtonStyle(
       backgroundColor: VelocityColors.primary,
       foregroundColor: VelocityColors.white,
       disabledBackgroundColor: VelocityColors.gray300,
       disabledForegroundColor: VelocityColors.gray500,
-      borderRadius: BorderRadius.all(Radius.circular(8)),
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+      borderRadius: const BorderRadius.all(Radius.circular(VelocityRadius.md)),
+      padding: const EdgeInsets.symmetric(
+        horizontal: VelocitySpacing.md, 
+        vertical: VelocitySpacing.sm + 2, // 10px
+      ),
+      textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
       iconSize: 18,
-      iconSpacing: 8,
+      iconSpacing: VelocitySpacing.sm,
     );
   }
 
