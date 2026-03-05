@@ -2,6 +2,8 @@ library velocity_chip_style;
 
 import 'package:flutter/material.dart';
 import '../../../core/theme/velocity_colors.dart';
+import '../../../core/tokens/velocity_spacing.dart';
+import '../../../core/tokens/velocity_radius.dart';
 
 class VelocityChipStyle {
   const VelocityChipStyle({
@@ -9,13 +11,16 @@ class VelocityChipStyle {
     this.foregroundColor = VelocityColors.white,
     this.disabledBackgroundColor = VelocityColors.gray200,
     this.disabledForegroundColor = VelocityColors.gray400,
-    this.borderRadius = const BorderRadius.all(Radius.circular(16)),
+    this.borderRadius = const BorderRadius.all(Radius.circular(VelocityRadius.lg)),
     this.border,
-    this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+    this.padding = const EdgeInsets.symmetric(
+      horizontal: VelocitySpacing.md - 4, // 12px
+      vertical: VelocitySpacing.xs + 2,   // 6px
+    ),
     this.labelStyle =
         const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
     this.iconSize = 16,
-    this.spacing = 6,
+    this.spacing = VelocitySpacing.xs + 2, // 6px
   });
 
   factory VelocityChipStyle.fromType(dynamic type, {bool selected = false}) {
